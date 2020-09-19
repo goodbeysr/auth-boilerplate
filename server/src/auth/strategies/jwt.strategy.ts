@@ -1,8 +1,7 @@
 import { pick } from 'lodash';
-import { jwtConstants } from './../constants';
+import { jwtConstants } from '../../constants';
 import { PassportStrategy } from '@nestjs/passport';
-import { Injectable, UnauthorizedException } from '@nestjs/common';
-import { AuthService } from './auth.service';
+import { Injectable } from '@nestjs/common';
 import { ExtractJwt, Strategy } from 'passport-jwt';
 
 @Injectable()

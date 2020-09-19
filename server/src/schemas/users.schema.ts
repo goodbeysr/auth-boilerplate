@@ -21,4 +21,19 @@ export class User extends Document {
 
 }
 
+export interface UserModel extends Document {
+  
+  readonly firstName: string;
+  
+  readonly lastName: string;
+
+  readonly userName: string;
+  
+  readonly password: string;
+
+  readonly role: string;
+}
+
 export const UserSchema = SchemaFactory.createForClass(User);
+
+export const USER_MODEL = Symbol('USER_MODEL');
