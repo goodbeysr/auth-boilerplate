@@ -1,3 +1,4 @@
+import { pick } from 'lodash';
 import { jwtConstants } from './../constants';
 import { PassportStrategy } from '@nestjs/passport';
 import { Injectable, UnauthorizedException } from '@nestjs/common';
@@ -14,8 +15,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
         });
       }
     
-      async validate(payload: any) {
-        const {userName, userId} = payload;
-        return { userId, userName };
+      async validate(user: any) {
+        return pick(user, ['firstName', 'lastName', 'userName', 'role', '_id'])
       }
 }
