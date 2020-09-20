@@ -11,7 +11,7 @@ export class User extends Document {
   lastName: string;
 
   @Prop({required: true, type: String})
-  userName: string;
+  username: string;
 
   @Prop({required: true, type: String})
   password: string;
@@ -27,7 +27,7 @@ export interface UserModel extends Document {
   
   readonly lastName: string;
 
-  readonly userName: string;
+  readonly username: string;
   
   readonly password: string;
 

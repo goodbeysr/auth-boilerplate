@@ -20,27 +20,6 @@ export class AuthController {
     @Get('profile')
     getProfile(@Request() req) {
         return req.user;
-    }
-
-    @UseGuards(JwtGuard, RolesGuard)
-    @Roles('admin')
-    @Get('admin')
-    onlyAdmin(@Request() req) {
-        return req.user;
-    }
-
-    @UseGuards(JwtGuard, RolesGuard)
-    @Roles('user')
-    @Get('user')
-    onlyUser(@Request() req) {
-        return req.user;
-    }
-
-    @UseGuards(RolesGuard)
-    @Roles()
-    @Get('visitor')
-    onlyVisitor(@Request() req) {
-        return req.user;
-    }    
+    }  
 
 }

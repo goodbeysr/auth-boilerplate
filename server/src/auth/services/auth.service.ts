@@ -11,15 +11,16 @@ export class AuthService {
         const user = (await this.usersService.findOne(username));
 
         if (user && user.password === pass) {
-        const { password, ...result } = user;
-        return pick(user, ['firstName', 'lastName', 'userName', 'role', '_id'])
+          return pick(user, ['firstName', 'lastName', 'username', 'role', '_id'])
         }
         return null;
     }
 
     async login(user: any) {
+        const rest = pick(user, ['firstName', 'lastName', 'username', 'role', '_id']);
         return {
-          access_token: this.jwtService.sign(pick(user, ['firstName', 'lastName', 'userName', 'role', '_id'])),
+          ...rest,
+          token: this.jwtService.sign(rest),
         };
       }
 }

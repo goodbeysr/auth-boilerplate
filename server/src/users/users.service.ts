@@ -10,7 +10,7 @@ export class UsersService {
 
   }
 
-  async findOne(userName: string): Promise<UserModel | undefined> {
-    return this.usersModel.findOne({userName}).exec();
+  async findOne(username: string): Promise<UserModel | undefined> {
+    return this.usersModel.findOne({username}).exec();
   }
 }
